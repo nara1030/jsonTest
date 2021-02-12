@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import hje.ex.json.emp.dto.EmployeeDto;
@@ -60,6 +61,18 @@ public class EmployeeController {
 		logger.debug("===== empList start =====");
 		for(EmployeeDto emp : empList) {
 			logger.debug("emp is '{}'", emp);
+		}
+		logger.debug("===== empList end   =====");
+		return "redirect:/emp/list1";
+	}
+	
+	@RequestMapping(value = "/add3", method = RequestMethod.POST, headers={"content-type=application/x-www-form-urlencoded"})
+	public String insertEmployee3(@RequestBody String employeeDto) {
+		logger.debug("employeeDto is '{}'", employeeDto);
+		// empList.add(employeeDto);
+		logger.debug("===== empList start =====");
+		for(EmployeeDto emp : empList) {
+			// logger.debug("emp is '{}'", emp);
 		}
 		logger.debug("===== empList end   =====");
 		return "redirect:/emp/list1";
